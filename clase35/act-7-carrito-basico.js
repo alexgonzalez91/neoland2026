@@ -7,12 +7,13 @@ function mostrarCarrito(lista){
   console.log("Detalle del carrito");
   
   for (let item of lista) {
-    const subtotal = item.precio * item.cantidad;
+    const total = item.precio * item.cantidad;
     console.log(`Producto: ${item.producto}`); 
     console.log(`Cantidad: ${item.cantidad}`)
-    console.log(`Total: $${subtotal}`);
+    console.log(`Total: $${total}`);
   }
   
 };
 
 mostrarCarrito(carrito)
+

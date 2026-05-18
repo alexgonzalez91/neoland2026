@@ -11,7 +11,7 @@ const calcularTotal = (lista) => {
     total = total + producto.precio;
   }
   
-  console.log("--- Resumen de compra ---");
+  return total
   console.log("El precio total de los productos es: $" + total);
 }
 

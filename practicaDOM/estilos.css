@@ -1,0 +1,38 @@
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+
+#especificaciones {
+   display: none;
+}
+
+
+.mostrar {
+   display: block
+}
+
+
+#imagenPortada {
+   width: 100%;
+   height: auto;
+}
+
+
+.contenedor {
+   width: 100%;
+   max-width: 1200px;
+}
+
+
+#productoDestacado {
+   display: flex;
+}
+
+
+#productoDestacado div {
+   width: 50%;
+   padding: 10px;
+}
