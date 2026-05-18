@@ -1,0 +1,535 @@
+/* ========================== 
+
+                                            RESET 
+                                            
+                                                                        ========================== */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+/* ========================== 
+
+                                        FIN DE RESET 
+                                        
+                                                                    ========================== */
+
+
+/* ========================== 
+
+                                        AJUSTE GENERALES 
+                                        
+                                                                    ========================== */
+
+
+
+body {
+  background-color: #001749;
+}
+
+
+.pie{
+    display: flex;
+}
+
+/* ========================== 
+                                    FIN DE AJUSTES GENERALES 
+                                                                
+                                                                    ========================== */
+
+
+/* ==========================   
+                                        AJUSTE HEADER  
+                                        
+                                                                    ========================== */
+
+
+
+                /* ==================== AJUSTE CONTAINER-CABEZA ==================== */
+
+.container-cabeza{
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 30px;    
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.header-logo{
+    width: clamp(100px, 10vw, 140px);
+}
+
+.nav-links a,
+.titulo span,
+.parrafo,
+.subtitulo,
+.linea,
+.pie-texto,
+.btn-texto span,
+.btn-texto {
+  color: #9ca3af;
+}
+
+.link{
+    border: 1px solid rgb(255, 255, 255);
+    padding: 0;
+}
+
+.btn-principal,
+.card1-titulo,
+.card1-subtitulo,
+.card2-titulo,
+.card2-subtitulo,
+.card2-texto,
+.btn-final{
+    color: #001749;
+}
+
+.navbar {
+
+    padding: 0.1rem 0.1rem;
+    color: #fff;
+    position: relative;
+    margin-top: 15px;
+}
+
+.nav-links {
+    display: none;   
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 2rem;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #001749;
+    text-align: center;
+  color: #fff
+}
+
+.nav-links.active {
+    display: flex; 
+}
+
+.nav-links li {
+    list-style: none;
+    margin: 1rem 0;
+}
+
+.menu-toggle {
+    display: block;
+    cursor: pointer;
+    background: none;
+    border: none;
+}
+
+.bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px auto;
+    background-color: #ffffff;
+    transition: 0.3s;
+}
+
+@media (min-width: 850px) {
+    .menu-toggle {
+        display: none; 
+    }
+
+    .nav-links {
+        display: flex; 
+        flex-direction: row;
+        position: static;
+        width: auto;
+        background: transparent;
+    }
+
+    .nav-links li {
+        margin: 0 1rem;
+    }
+}
+
+                /* ==================== FIN AJUSTE CONTAINER-CABEZA ==================== */
+
+
+                /* ==================== FIN AJUSTE CONTAINER-HERO ==================== */
+.container-hero{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    margin-bottom: 60px;
+}
+
+.subtitulo{
+    
+    display: flex;
+    align-items: center; 
+    margin-bottom: 20px; 
+}
+
+.subtitulo p {
+  color: #9ca3af;       
+  font-size: 7px;  
+  letter-spacing: 2px;  
+  text-transform: uppercase; 
+}
+
+
+.linea {
+    display: inline-block;
+    width: 20px;           
+    height: 1px;           
+    background-color: #4b5563; 
+    vertical-align: middle; 
+    margin-right: 15px;    
+}
+
+.titulo h1{
+    font-size: 60px;
+    margin-bottom: 15px;
+}
+
+.parrafo p{
+    margin-bottom: 40px;
+    font-size: 12px;
+}
+
+.botones-container{
+   display: flex;
+   gap: 40px;
+   align-items: center;
+}
+
+.btn-principal{
+    background-color: white;
+    border-radius: 2px;
+    padding: 7px 20px;
+    font-size: 12px;
+    text-decoration: none;
+
+}
+
+.btn-texto{
+    font-size: 12px;
+}
+
+                /* ==================== FIN AJUSTE CONTAINER-HERO ==================== */
+
+/* ========================== 
+
+                                        FIN AJUSTE HEADER 
+                                        
+                                                                    ========================== */
+
+
+/* ========================== 
+
+                                        AJUSTE MAIN 
+                                        
+                                                                    ========================== */
+
+
+
+        /* ========================== AJUSTE CONTAINER-CARDS ========================== */
+
+            /* ====================== AJUSTE CONTAINER-CARD1 ====================== */
+
+.container-cards{
+    background-color: white;
+    padding: 50px 20px;
+    align-items: center;
+    text-align: center;
+}
+
+.titulo,
+.card1,
+.card2,
+.card3,
+.container-final,
+.pie-menu a{
+    color: #ffffff;
+}
+
+.card1-subtitulo{
+    font-size: 7px;
+    padding: 10px 0;
+}
+
+.card1-titulo{
+    font-size: 30px;
+    padding: 10px 0;
+}
+
+.card1,
+.card2,
+.card3{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    background-color: #001749; 
+    border: 1px solid #001749;
+    border-radius: 10px;
+    padding: 50px 30px 30px 30px;
+    position: relative;
+    
+}
+.card1,
+.card2,
+.card3{
+    margin-top: 30px;
+}
+
+
+.step-number{
+    position: static;
+    top: 20px;
+    margin-bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.step-number + img{
+    filter: invert();
+    padding: 5px 15px;
+}
+
+
+            /* ====================== FIN AJUSTE CONTAINER-CARD1 ====================== */
+
+             /* ====================== AJUSTE CONTAINER-CARD2 ====================== */
+
+.card2-subtitulo{
+    font-size: 10px;
+}
+
+.card2-titulo{
+    font-size: 30px;
+    padding: 10px 0;
+}   
+
+.card2-texto{
+    padding: 10px;
+    font-size: 15px;
+}
+.card2-caja{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+ul{
+    justify-content: center;
+    text-align: justify;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.card2-imagen img{
+    width: 60%;
+    height: auto;
+    object-fit: cover;
+    padding-top: 20px;
+}
+
+            /* ====================== FIN AJUSTE CONTAINER-CARD2 ====================== */
+
+        /* ========================== FIN AJUSTE CONTAINER-CARDS ========================== */
+
+
+        /* ========================== AJUSTE CONTAINER-FINAL ========================== */
+
+
+.container-final{
+    padding: 100px 20px;      
+    display: flex;
+    flex-direction: column;    
+    align-items: center;       
+    justify-content: center;   
+    text-align: center
+}
+
+.final-titulo{
+    display: block;
+    padding: 0 800px 20px 800px;
+    font-size: 50px;
+    
+}
+
+.btn-final{
+    background-color: white;
+    border-radius: 2px;
+    padding: 7px 20px;
+    font-size: 12px;
+    text-decoration: none;
+
+}
+
+        /* ========================== FIN AJUSTE CONTAINER-FINAL ========================== */
+
+        /* ========================== AJUSTE FOOTER ========================== */
+
+
+
+footer{
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.pie-logo{
+    width: clamp(100px, 10vw, 140px);
+}
+
+.pie-menu,
+.pie-texto,
+.pie-logo{
+    margin: 0 10px;
+}
+
+.pie-menu ul {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    font-size: 12px;
+    list-style: none;
+
+}
+ul a{
+    text-decoration: none;
+}
+
+        /* ========================== FIN AJUSTE FOOTER ========================== */
+
+/* ========================== 
+
+                                            FIN AJUSTE MAIN 
+                                        
+                                                                    ========================== */
+
+
+
+
+/*==========================
+                                            768px
+                                                                        =============================*/
+
+
+/* ========================== 
+
+                                        AJUSTE GENERALES 
+                                        
+                                                                    ========================== */                                                                         
+
+@media screen and (min-width: 850px){
+    .container-cabeza,
+    .container-card1,
+    .container-card2,
+    .pie{
+        display: flex;
+    }
+
+    .navbar{
+        font-size: 10px;
+    }
+
+    .container-hero{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        padding-left: 30px;
+        margin-bottom: 60px;
+    }
+        .card1-subtitulo{
+            font-size: 7px;
+    }
+
+        .titulo h1{
+            max-width: 800px;
+            text-align: left;
+    }
+
+        .parrafo p{
+            text-align: left;
+            max-width: 400px;
+    }
+        .card1-subtitulo,
+        .card1-titulo{
+            text-align: left;
+            
+    }
+
+        .card1,
+        .card2,
+        .card3,
+        .container-cards span{
+            align-items: flex-start;
+            text-align: left;
+
+    }
+
+        .card1,
+        .card2{
+            margin-right: 20px;
+    }
+
+        .step-number{
+            margin-bottom: 10px;
+    }
+
+        .container-card2{
+            display: flex;
+            align-items: center;
+            gap: 50px;
+            width: 100%;
+            margin: 100px auto;
+            justify-content: flex-start;
+    }
+        .card2-caja,
+        .card2-imagen{
+            flex: 1;
+            width: 50%;
+    }
+        
+        .card2-subtitulo,
+        .card2-titulo,
+        .card2-texto,
+        .card2-lista{
+            text-align: left;
+            display: flex;
+            justify-items: flex-start;
+            flex-direction: column;
+        }
+
+        .card2-texto{
+            padding-left: 3px;
+            line-height: 1.7;
+    }
+                
+        .card2-imagen img{
+                width: 100%;
+                max-width: 550px;
+                object-fit: contain;
+                display: block;
+                height: auto;
+                border-radius: 12px;
+                margin: 0 auto;
+    }
+}
+/* ========================== 
+
+                                    FIN DE AJUSTES GENERALES 
+                                    
+                                                                    ========================== */
