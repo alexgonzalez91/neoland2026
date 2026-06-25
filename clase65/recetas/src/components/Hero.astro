@@ -1,0 +1,20 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  buttonText: string;
+  buttonLink: string;
+}
+const { title, description, image, buttonText, buttonLink } = Astro.props;
+---
+<section class="hero">
+  <div class="hero-content">
+    <h1>{title}</h1>
+    <p>{description}</p>
+    <a href={buttonLink} class="btn">{buttonText}</a>
+  </div>
+  <div class="hero-image">
+    <img src={image} alt="Plato destacado" />
+  </div>
+</section>

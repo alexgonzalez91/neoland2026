@@ -1,0 +1,22 @@
+---
+// Recogemos los datos básicos de la receta mediante props
+const { id, name, image, cuisine, difficulty, prepTimeMinutes } = Astro.props;
+---
+
+<article class="recipe-card">
+  <div class="image-area">
+    <img src={image} alt={name} />
+  </div>
+  
+  <div class="info-area">
+    <h3>{name.toUpperCase()}</h3>
+    
+    <div class="details">
+      <p><strong>Cuisine:</strong> {cuisine}</p>
+      <p><strong>Difficulty:</strong> {difficulty}</p>
+      <p><strong>Time:</strong> {prepTimeMinutes} min</p>
+    </div>
+    
+    <a href={`/recetas/${id}`} class="btn-orange">VER RECETA</a>
+  </div>
+</article>

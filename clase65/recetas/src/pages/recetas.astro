@@ -1,0 +1,18 @@
+---
+import Layout from '../components/Layout.astro';
+import RecipeList from '../components/RecipeList.astro';
+
+// Hacemos el fetch directo para conseguir 12 recetas de la API
+const response = await fetch('https://dummyjson.com/recipes?limit=12');
+const data = await response.json();
+const recipes = data.recipes;
+---
+
+<Layout title="Catálogo de Recetas">
+  
+  <div style="text-align: center; width: 100%; margin: 20px auto 40px auto;">
+    <h2 style="font-size: 2rem; color: #333;">Todas nuestras recetas</h2>
+  </div>
+  
+  <RecipeList recipes={recipes} />
+</Layout>

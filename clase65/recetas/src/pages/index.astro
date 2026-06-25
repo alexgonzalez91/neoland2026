@@ -1,0 +1,24 @@
+---
+import Layout from '../components/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionTitle from '../components/SectionTitle.astro';
+import RecipeList from '../components/RecipeList.astro';
+
+const res = await fetch('https://dummyjson.com/recipes?limit=3');
+const data = await res.json();
+const featuredRecipes = data.recipes;
+---
+<Layout title="Inicio">
+  <Hero 
+    title="Bienvenidos a Recetas Alex" 
+    description="Un sitio para descubrir platos de diferentes países, explorar ingredientes y encontrar ideas fantásticas para cocinar."
+    image="https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800"
+    buttonText="Explorar Recetas"
+    buttonLink="/recetas"
+  />
+
+  <div class="container">
+    <SectionTitle title="Recetas Destacadas" subtitle="Prueba los platos mejor valorados por nuestra comunidad" />
+    <RecipeList recipes={featuredRecipes} />
+  </div>
+</Layout>

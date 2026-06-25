@@ -1,0 +1,23 @@
+---
+import Layout from '../components/Layout.astro';
+import RecipeList from '../components/RecipeList.astro';
+
+// Pedimos 50 recetas a la API para asegurarnos de que vengan platos asiáticos
+const response = await fetch('https://dummyjson.com/recipes?limit=50');
+const data = await response.json();
+
+// Filtro simple: Guardamos las recetas donde 'cuisine' sea 'Asian' o incluyan el tag 'Asian'
+const asianRecipes = data.recipes.filter((recipe: any) => 
+  recipe.cuisine === "Asian" || (recipe.tags && recipe.tags.includes("Asian"))
+);
+---
+
+<Layout title="Cocina Asiática">
+  
+  <div style="text-align: center; width: 100%; margin: 20px auto 40px auto;">
+    <h2 style="margin-bottom: 10px; font-size: 2rem; color: #333;">Especialidades Asiáticas</h2>
+    <p style="margin-bottom: 20px; color: #666; font-size: 1.1rem;">Listado exclusivo de platos tradicionales y exóticos de Asia.</p>
+  </div>
+
+  <RecipeList recipes={asianRecipes} />
+</Layout>
