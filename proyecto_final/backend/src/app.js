@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import juegosRoutes from "./rutas/juegos.routes.js";
 
 dotenv.config();
 
@@ -15,6 +16,7 @@ app.use(
 );
 
 app.use(express.json());
+app.use("/api/juegos", juegosRoutes);
 
 app.get("/api/health", (req, res) => {
   return res.status(200).json({
