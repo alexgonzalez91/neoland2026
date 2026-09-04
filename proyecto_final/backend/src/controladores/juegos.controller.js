@@ -2,7 +2,97 @@ import { pool } from "../data/db.js";
 
 export async function getJuegos(req, res) {
   try {
-    const [juegos] = await pool.query(`
+    const {
+      buscar,
+      genero,
+      plataforma,
+      orden,
+      page = "1",
+      limit = "12",
+    } = req.query;
+
+    const pageNumero = Number(page);
+    const limitNumero = Number(limit);
+
+    if (!Number.isInteger(pageNumero) || pageNumero <= 0) {
+      return res.status(400).json({
+        ok: false,
+        message: "page debe ser un número entero positivo",
+      });
+    }
+
+    if (
+      !Number.isInteger(limitNumero) ||
+      limitNumero <= 0 ||
+      limitNumero > 50
+    ) {
+      return res.status(400).json({
+        ok: false,
+        message: "limit debe ser un número entero entre 1 y 50",
+      });
+    }
+
+    const condiciones = [];
+    const valores = [];
+
+    if (buscar) {
+      condiciones.push("juegos.titulo LIKE ?");
+      valores.push(`%${buscar.trim()}%`);
+    }
+
+    if (genero) {
+      condiciones.push("generos.nombre = ?");
+      valores.push(genero.trim());
+    }
+
+    if (plataforma) {
+      condiciones.push(`
+        EXISTS (
+          SELECT 1
+          FROM juego_plataforma
+          JOIN plataformas
+            ON juego_plataforma.plataforma_id = plataformas.id
+          WHERE juego_plataforma.juego_id = juegos.id
+            AND plataformas.nombre = ?
+        )
+      `);
+
+      valores.push(plataforma.trim());
+    }
+
+    const whereSql =
+      condiciones.length > 0
+        ? ` WHERE ${condiciones.join(" AND ")}`
+        : "";
+
+    const ordenesPermitidos = {
+      titulo_asc: "juegos.titulo ASC",
+      titulo_desc: "juegos.titulo DESC",
+      puntuacion_asc: "juegos.puntuacion ASC",
+      puntuacion_desc: "juegos.puntuacion DESC",
+      fecha_asc: "juegos.fecha_lanzamiento ASC",
+      fecha_desc: "juegos.fecha_lanzamiento DESC",
+    };
+
+    const ordenSql =
+      ordenesPermitidos[orden] || ordenesPermitidos.titulo_asc;
+
+    const [conteo] = await pool.query(
+      `
+        SELECT COUNT(*) AS total
+        FROM juegos
+        JOIN generos
+          ON juegos.genero_id = generos.id
+        ${whereSql}
+      `,
+      valores
+    );
+
+    const total = conteo[0].total;
+    const totalPages = Math.ceil(total / limitNumero);
+    const offset = (pageNumero - 1) * limitNumero;
+
+    const sql = `
       SELECT
         juegos.id,
         juegos.titulo,
@@ -14,12 +104,29 @@ export async function getJuegos(req, res) {
       FROM juegos
       JOIN generos
         ON juegos.genero_id = generos.id
-      ORDER BY juegos.titulo
-    `);
+      ${whereSql}
+      ORDER BY ${ordenSql}
+      LIMIT ?
+      OFFSET ?
+    `;
+
+    const valoresFinales = [
+      ...valores,
+      limitNumero,
+      offset,
+    ];
+
+    const [juegos] = await pool.query(sql, valoresFinales);
 
     return res.status(200).json({
       ok: true,
       data: juegos,
+      pagination: {
+        page: pageNumero,
+        limit: limitNumero,
+        total,
+        totalPages,
+      },
     });
   } catch (error) {
     console.error(error);
@@ -67,9 +174,39 @@ export async function getJuegoById(req, res) {
       });
     }
 
+    const [plataformas] = await pool.query(
+      `
+        SELECT plataformas.nombre
+        FROM juego_plataforma
+        JOIN plataformas
+          ON juego_plataforma.plataforma_id = plataformas.id
+        WHERE juego_plataforma.juego_id = ?
+        ORDER BY plataformas.nombre
+      `,
+      [id]
+    );
+
+    const [resenas] = await pool.query(
+      `
+        SELECT
+          puntuacion,
+          comentario,
+          etiqueta
+        FROM resenas_editoriales
+        WHERE juego_id = ?
+      `,
+      [id]
+    );
+
+    const juego = {
+      ...juegos[0],
+      plataformas: plataformas.map((plataforma) => plataforma.nombre),
+      resena: resenas[0] || null,
+    };
+
     return res.status(200).json({
       ok: true,
-      data: juegos[0],
+      data: juego,
     });
   } catch (error) {
     console.error(error);
