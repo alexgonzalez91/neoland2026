@@ -1,6 +1,6 @@
 import { pool } from "../data/db.js";
 
-export async function getResenas(req, res) {
+export async function getResenas(req, res, next) {
   try {
     const { etiqueta } = req.query;
 
@@ -41,7 +41,7 @@ export async function getResenas(req, res) {
       data: resenas,
     });
   } catch (error) {
-    console.error(error);
+    next(error);
 
     return res.status(500).json({
       ok: false,

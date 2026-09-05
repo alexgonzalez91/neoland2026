@@ -1,6 +1,6 @@
 import { pool } from "../data/db.js";
 
-export async function getGeneros(req, res) {
+export async function getGeneros(req, res, next) {
   try {
     const [generos] = await pool.query(`
       SELECT
@@ -15,7 +15,7 @@ export async function getGeneros(req, res) {
       data: generos,
     });
   } catch (error) {
-    console.error(error);
+    next(error);
 
     return res.status(500).json({
       ok: false,

@@ -1,6 +1,6 @@
 import { pool } from "../data/db.js";
 
-export async function getPlataformas(req, res) {
+export async function getPlataformas(req, res, next) {
   try {
     const [plataformas] = await pool.query(`
       SELECT
@@ -15,7 +15,7 @@ export async function getPlataformas(req, res) {
       data: plataformas,
     });
   } catch (error) {
-    console.error(error);
+    next(error);
 
     return res.status(500).json({
       ok: false,
