@@ -1,0 +1,133 @@
+---
+const currentPath = Astro.url.pathname;
+
+const links = [
+  { href: "/", label: "Inicio" },
+  { href: "/catalogo", label: "Catálogo" },
+  { href: "/seleccion", label: "Selección MatchGame" },
+  { href: "/sobre-matchgame", label: "Sobre MatchGame" },
+  { href: "/contacto", label: "Contacto" },
+];
+
+function isActive(href) {
+  if (href === "/") {
+    return currentPath === "/";
+  }
+
+  return currentPath.startsWith(href);
+}
+---
+
+<header class="navbar">
+  <div class="container navbar__content">
+    <a class="navbar__logo" href="/">
+      Match<span>Game</span>
+    </a>
+
+    <nav class="navbar__nav" aria-label="Navegación principal">
+      <ul class="navbar__list">
+        {
+          links.map((link) => (
+            <li>
+              <a
+                class:list={[
+                  "navbar__link",
+                  { "navbar__link--active": isActive(link.href) },
+                ]}
+                href={link.href}
+              >
+                {link.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<style>
+  .navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--color-border);
+    background-color: rgba(15, 23, 42, 0.95);
+    backdrop-filter: blur(12px);
+  }
+
+  .navbar__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 72px;
+    gap: var(--space-3);
+  }
+
+  .navbar__logo {
+    flex-shrink: 0;
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .navbar__logo span {
+    color: var(--color-primary-light);
+  }
+
+  .navbar__list {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    list-style: none;
+  }
+
+  .navbar__link {
+    position: relative;
+    display: inline-block;
+    padding-block: var(--space-1);
+    color: var(--color-text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .navbar__link:hover {
+    color: var(--color-text-primary);
+  }
+
+  .navbar__link--active {
+    color: var(--color-text-primary);
+  }
+
+  .navbar__link--active::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    border-radius: 999px;
+    background-color: var(--color-primary);
+  }
+
+  @media (max-width: 900px) {
+    .navbar__content {
+      flex-direction: column;
+      align-items: flex-start;
+      padding-block: var(--space-2);
+    }
+
+    .navbar__nav {
+      width: 100%;
+      overflow-x: auto;
+    }
+
+    .navbar__list {
+      width: max-content;
+      gap: var(--space-2);
+    }
+  }
+</style>
