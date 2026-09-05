@@ -9,7 +9,7 @@ const links = [
   { href: "/contacto", label: "Contacto" },
 ];
 
-function isActive(href) {
+function isActive(href: string) {
   if (href === "/") {
     return currentPath === "/";
   }
