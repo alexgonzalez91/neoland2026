@@ -1,0 +1,135 @@
+---
+interface Props {
+  id: number;
+  titulo: string;
+  imagen?: string | null;
+  puntuacion: number | string;
+  genero: string;
+}
+
+const {
+  id,
+  titulo,
+  imagen,
+  puntuacion,
+  genero,
+} = Astro.props;
+
+const puntuacionFormateada = Number(puntuacion).toFixed(1);
+---
+
+<article class="game-card">
+  <a
+    class="game-card__link"
+    href={`/juegos/${id}`}
+    aria-label={`Ver detalles de ${titulo}`}
+  >
+    <div class="game-card__image-container">
+      {
+        imagen ? (
+          <img
+            class="game-card__image"
+            src={imagen}
+            alt={`Carátula de ${titulo}`}
+            loading="lazy"
+          />
+        ) : (
+          <div class="game-card__placeholder">
+            <span>MatchGame</span>
+          </div>
+        )
+      }
+    </div>
+
+    <div class="game-card__content">
+      <div class="game-card__header">
+        <h3>{titulo}</h3>
+
+        <span class="game-card__score">
+          {puntuacionFormateada}
+        </span>
+      </div>
+
+      <p class="game-card__genre">{genero}</p>
+    </div>
+  </a>
+</article>
+
+<style>
+  .game-card {
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background-color: var(--color-card);
+    transition:
+      transform 0.2s ease,
+      border-color 0.2s ease;
+  }
+
+  .game-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+  }
+
+  .game-card__link {
+    display: block;
+    height: 100%;
+  }
+
+  .game-card__image-container {
+    aspect-ratio: 2 / 3;
+    overflow: hidden;
+    background-color: var(--color-bg-secondary);
+  }
+
+  .game-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .game-card:hover .game-card__image {
+    transform: scale(1.03);
+  }
+
+  .game-card__placeholder {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: var(--color-text-secondary);
+    font-family: var(--font-heading);
+    font-weight: 600;
+  }
+
+  .game-card__content {
+    padding: var(--space-2);
+  }
+
+  .game-card__header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: var(--space-2);
+  }
+
+  .game-card__header h3 {
+    font-size: 1.1rem;
+  }
+
+  .game-card__score {
+    flex-shrink: 0;
+    padding: 4px 8px;
+    border-radius: var(--radius-small);
+    background-color: var(--color-primary);
+    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    font-weight: 700;
+  }
+
+  .game-card__genre {
+    margin-top: var(--space-1);
+    font-size: 0.875rem;
+  }
+</style>

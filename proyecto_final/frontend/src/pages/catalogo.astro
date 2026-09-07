@@ -1,0 +1,39 @@
+---
+import Layout from "../layouts/Layout.astro";
+import CatalogoJuegos from "../components/CatalogoJuegos.jsx";
+---
+
+<Layout
+  title="Catálogo | MatchGame"
+  description="Explora el catálogo de videojuegos de MatchGame."
+>
+  <section class="catalog">
+    <div class="container">
+      <header class="catalog__header">
+        <h1>Catálogo</h1>
+
+        <p>
+          Explora nuestra selección de videojuegos y encuentra
+          tu próxima aventura.
+        </p>
+      </header>
+
+      <CatalogoJuegos client:load />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .catalog {
+    padding-block: var(--space-5);
+  }
+
+  .catalog__header {
+    margin-bottom: var(--space-4);
+  }
+
+  .catalog__header p {
+    max-width: 650px;
+    margin-top: var(--space-2);
+  }
+</style>

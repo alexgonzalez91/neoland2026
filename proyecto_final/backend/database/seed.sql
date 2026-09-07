@@ -46,7 +46,7 @@ VALUES
     1,
     'Elden Ring',
     'RPG de acción y exploración en un enorme mundo de fantasía.',
-    NULL,
+    '/images/juegos/elden-ring.webp',
     '2022-02-25',
     9.5,
     3
@@ -55,7 +55,7 @@ VALUES
     2,
     'Hollow Knight',
     'Aventura de exploración y combate ambientada en el reino de Hallownest.',
-    NULL,
+    '/images/juegos/hollow-knight.jpg',
     '2017-02-24',
     9.2,
     2
@@ -64,7 +64,7 @@ VALUES
     3,
     'Resident Evil 4',
     'Juego de terror y acción centrado en el rescate de la hija del presidente.',
-    NULL,
+    '/images/juegos/resident-evil-4.jpg',
     '2023-03-24',
     9.3,
     7
@@ -73,16 +73,16 @@ VALUES
     4,
     'Celeste',
     'Juego de plataformas centrado en escalar una montaña y superar numerosos desafíos.',
-    NULL,
+    '/images/juegos/celeste.png',
     '2018-01-25',
     9.1,
     9
 ),
 (
     5,
-    'Baldur''s Gate 3',
+    'Baldurs Gate 3',
     'RPG centrado en decisiones, exploración y combates estratégicos por turnos.',
-    NULL,
+    '/images/juegos/baldurs-Gate-3.webp',
     '2023-08-03',
     9.7,
     3
@@ -91,7 +91,7 @@ VALUES
     6,
     'Hades',
     'Juego de acción en el que Zagreus intenta escapar del inframundo.',
-    NULL,
+    '/images/juegos/hades.webp',
     '2020-09-17',
     9.4,
     1
@@ -100,7 +100,7 @@ VALUES
     7,
     'Stardew Valley',
     'Simulador de vida rural con agricultura, exploración y relaciones sociales.',
-    NULL,
+    'images/juegos/stardew-valley.webp',
     '2016-02-26',
     9.0,
     8
