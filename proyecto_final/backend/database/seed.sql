@@ -55,7 +55,7 @@ VALUES
     2,
     'Hollow Knight',
     'Aventura de exploración y combate ambientada en el reino de Hallownest.',
-    '/images/juegos/hollow-knight.jpg',
+    '/images/juegos/hollow-knight.webp',
     '2017-02-24',
     9.2,
     2
@@ -64,7 +64,7 @@ VALUES
     3,
     'Resident Evil 4',
     'Juego de terror y acción centrado en el rescate de la hija del presidente.',
-    '/images/juegos/resident-evil-4.jpg',
+    '/images/juegos/resident-evil-4.webp',
     '2023-03-24',
     9.3,
     7
@@ -109,7 +109,7 @@ VALUES
     8,
     'DOOM Eternal',
     'Shooter de acción rápida centrado en combatir hordas demoníacas.',
-    NULL,
+    'images/juegos/doom-eternal.webp',
     '2020-03-20',
     9.0,
     10
@@ -118,7 +118,7 @@ VALUES
     9,
     'Forza Horizon 5',
     'Juego de conducción de mundo abierto ambientado en una versión de México.',
-    NULL,
+    'images/juegos/forza-horizon-5.webp',
     '2021-11-09',
     9.1,
     6
@@ -127,7 +127,7 @@ VALUES
     10,
     'Dead Space',
     'Aventura de terror y ciencia ficción ambientada en una nave minera.',
-    NULL,
+    'images/juegos/dead-space.webp',
     '2023-01-27',
     9.0,
     7
@@ -280,7 +280,7 @@ VALUES
     11,
     'The Witcher 3: Wild Hunt',
     'RPG de mundo abierto centrado en las aventuras del brujo Geralt de Rivia.',
-    NULL,
+    'images/juegos/the-witcher-3.webp',
     '2015-05-19',
     9.6,
     3
@@ -289,7 +289,7 @@ VALUES
     12,
     'Cyberpunk 2077',
     'RPG de acción ambientado en la futurista y peligrosa Night City.',
-    NULL,
+    'images/juegos/cyberpunk-2077.webp',
     '2020-12-10',
     9.0,
     3
@@ -298,7 +298,7 @@ VALUES
     13,
     'Sekiro: Shadows Die Twice',
     'Juego de acción exigente centrado en el combate con espada y la precisión.',
-    NULL,
+    'images/juegos/sekiro.webp',
     '2019-03-22',
     9.3,
     1
@@ -307,7 +307,7 @@ VALUES
     14,
     'Control',
     'Aventura de acción sobrenatural ambientada en una misteriosa agencia gubernamental.',
-    NULL,
+    'images/juegos/control.webp',
     '2019-08-27',
     8.8,
     1
@@ -316,7 +316,7 @@ VALUES
     15,
     'Alan Wake 2',
     'Aventura de terror psicológico que combina investigación, supervivencia y narrativa.',
-    NULL,
+    'images/juegos/alan-wake-2.webp',
     '2023-10-27',
     9.4,
     7
@@ -325,7 +325,7 @@ VALUES
     16,
     'The Last of Us Part I',
     'Aventura narrativa de supervivencia ambientada en un mundo devastado por una infección.',
-    NULL,
+    '/images/juegos/the-last-of-us-part-1.webp',
     '2022-09-02',
     9.5,
     2
@@ -334,7 +334,7 @@ VALUES
     17,
     'God of War',
     'Aventura de acción protagonizada por Kratos y su hijo Atreus en tierras nórdicas.',
-    NULL,
+    '/images/juegos/god-of-war.webp',
     '2018-04-20',
     9.5,
     2
@@ -343,7 +343,7 @@ VALUES
     18,
     'God of War Ragnarök',
     'Continuación de la aventura de Kratos y Atreus ante la llegada del Ragnarök.',
-    NULL,
+    '/images/juegos/god-of-war-ragnarok.webp',
     '2022-11-09',
     9.6,
     2
@@ -352,7 +352,7 @@ VALUES
     19,
     'Marvel''s Spider-Man Remastered',
     'Aventura de acción en mundo abierto protagonizada por Spider-Man en Nueva York.',
-    NULL,
+    '/images/juegos/marvel-spider-man.webp',
     '2020-11-12',
     9.1,
     2
@@ -361,7 +361,7 @@ VALUES
     20,
     'Red Dead Redemption 2',
     'Aventura de mundo abierto ambientada en los últimos años del Salvaje Oeste.',
-    NULL,
+    '/images/juegos/red-dead-redemption-2.webp',
     '2018-10-26',
     9.7,
     2
