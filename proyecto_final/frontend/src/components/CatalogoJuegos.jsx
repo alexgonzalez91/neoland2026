@@ -11,6 +11,7 @@ export default function CatalogoJuegos() {
 
   const [terminoInput, setTerminoInput] = useState("");
   const [buscar, setBuscar] = useState("");
+  const [urlProcesada, setUrlProcesada] = useState(false);
 
   const [genero, setGenero] = useState("");
   const [plataforma, setPlataforma] = useState("");
@@ -18,6 +19,20 @@ export default function CatalogoJuegos() {
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
+
+  useEffect(() => {
+  const params = new URLSearchParams(
+    window.location.search
+  );
+
+  const busquedaURL =
+    params.get("buscar") || "";
+
+  setTerminoInput(busquedaURL);
+  setBuscar(busquedaURL);
+
+  setUrlProcesada(true);
+}, []);
 
   useEffect(() => {
     async function cargarOpcionesFiltros() {
@@ -51,6 +66,9 @@ export default function CatalogoJuegos() {
   }, []);
 
   useEffect(() => {
+    if (!urlProcesada) {
+  return;
+}
     async function cargarJuegos() {
       try {
         setLoading(true);
