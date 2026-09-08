@@ -73,7 +73,7 @@ VALUES
     4,
     'Celeste',
     'Juego de plataformas centrado en escalar una montaña y superar numerosos desafíos.',
-    '/images/juegos/celeste.png',
+    '/images/juegos/celeste.webp',
     '2018-01-25',
     9.1,
     9
@@ -505,7 +505,7 @@ VALUES
     21,
     'Ghost of Tsushima Director''s Cut',
     'Aventura de acción en mundo abierto ambientada en el Japón feudal durante la invasión mongola.',
-    NULL,
+    '/images/juegos/ghost-of-tsushima-directors-cut.webp',
     '2021-08-20',
     9.3,
     2
@@ -514,7 +514,7 @@ VALUES
     22,
     'Horizon Forbidden West',
     'Aventura de mundo abierto protagonizada por Aloy en un territorio dominado por enormes máquinas.',
-    NULL,
+    '/images/juegos/horizon-forbidden-west.webp',
     '2022-02-18',
     9.2,
     2
@@ -523,7 +523,7 @@ VALUES
     23,
     'Cuphead',
     'Juego de acción y plataformas inspirado en la animación clásica y centrado en exigentes combates.',
-    NULL,
+    '/images/juegos/cuphead.webp',
     '2017-09-29',
     9.0,
     9
@@ -532,7 +532,7 @@ VALUES
     24,
     'Ori and the Will of the Wisps',
     'Aventura de plataformas y exploración ambientada en un mundo fantástico lleno de peligros.',
-    NULL,
+    '/images/juegos/ori-and-the-will-of-the-wisps.webp',
     '2020-03-11',
     9.2,
     9
@@ -541,7 +541,7 @@ VALUES
     25,
     'Disco Elysium - The Final Cut',
     'RPG narrativo centrado en la investigación, los diálogos y las decisiones del jugador.',
-    NULL,
+    '/images/juegos/disco-elysium-the-final-cut.webp',
     '2021-03-30',
     9.4,
     3
@@ -550,7 +550,7 @@ VALUES
     26,
     'Persona 5 Royal',
     'RPG japonés que combina combates por turnos, exploración y vida cotidiana.',
-    NULL,
+    '/images/juegos/persona-5-royal.webp',
     '2020-03-31',
     9.5,
     3
@@ -559,7 +559,7 @@ VALUES
     27,
     'It Takes Two',
     'Aventura cooperativa diseñada alrededor de mecánicas variadas que requieren colaboración constante.',
-    NULL,
+    '/images/juegos/it-takes-two.webp',
     '2021-03-26',
     9.3,
     2
@@ -568,7 +568,7 @@ VALUES
     28,
     'Dying Light 2 Stay Human',
     'Juego de acción y supervivencia en mundo abierto con parkour y enfrentamientos contra infectados.',
-    NULL,
+    '/images/juegos/dying-light-2-stay-human.webp',
     '2022-02-04',
     8.7,
     1
@@ -577,7 +577,7 @@ VALUES
     29,
     'XCOM 2',
     'Juego de estrategia por turnos centrado en dirigir una resistencia contra una ocupación alienígena.',
-    NULL,
+    '/images/juegos/xcom-2.webp',
     '2016-02-05',
     9.0,
     4
@@ -586,7 +586,7 @@ VALUES
     30,
     'EA Sports FC 25',
     'Juego de fútbol con competiciones, equipos y diferentes modos para jugar solo o acompañado.',
-    NULL,
+    '/images/juegos/ea-sports-fc-25.webp',
     '2024-09-27',
     8.5,
     5
@@ -743,7 +743,7 @@ VALUES
     31,
     'Sid Meier''s Civilization VI',
     'Juego de estrategia por turnos centrado en construir y desarrollar una civilización a lo largo de la historia.',
-    NULL,
+    '/images/juegos/sid-meiers-civilization-vi.webp',
     '2016-10-21',
     9.0,
     4
@@ -752,7 +752,7 @@ VALUES
     32,
     'Age of Empires IV',
     'Juego de estrategia en tiempo real basado en la gestión de recursos y el desarrollo de diferentes civilizaciones.',
-    NULL,
+    '/images/juegos/age-of-empires-iv.webp',
     '2021-10-28',
     9.0,
     4
@@ -761,7 +761,7 @@ VALUES
     33,
     'Cities: Skylines',
     'Simulador de construcción y gestión de ciudades con numerosas opciones de planificación urbana.',
-    NULL,
+    '/images/juegos/cities-skylines.webp',
     '2015-03-10',
     8.9,
     8
@@ -770,7 +770,7 @@ VALUES
     34,
     'Animal Crossing: New Horizons',
     'Simulador de vida relajado en el que el jugador desarrolla y personaliza su propia isla.',
-    NULL,
+    '/images/juegos/animal-crossing-new-horizons.webp',
     '2020-03-20',
     9.1,
     8
@@ -779,7 +779,7 @@ VALUES
     35,
     'Super Mario Odyssey',
     'Juego de plataformas y exploración protagonizado por Mario en una aventura a través de diferentes reinos.',
-    NULL,
+    '/images/juegos/super-mario-odyssey.webp',
     '2017-10-27',
     9.6,
     9
@@ -788,7 +788,7 @@ VALUES
     36,
     'Metroid Dread',
     'Aventura de acción y exploración protagonizada por Samus Aran en un peligroso planeta.',
-    NULL,
+    '/images/juegos/metroid-dread.webp',
     '2021-10-08',
     9.2,
     1
@@ -797,7 +797,7 @@ VALUES
     37,
     'Mario Kart 8 Deluxe',
     'Juego de carreras accesible y competitivo protagonizado por personajes del universo de Mario.',
-    NULL,
+    '/images/juegos/mario-kart-8-deluxe.webp',
     '2017-04-28',
     9.3,
     6
@@ -806,7 +806,7 @@ VALUES
     38,
     'Gran Turismo 7',
     'Simulador de conducción centrado en una amplia selección de vehículos y diferentes tipos de competición.',
-    NULL,
+    '/images/juegos/gran-turismo-7.webp',
     '2022-03-04',
     9.1,
     6
@@ -815,7 +815,7 @@ VALUES
     39,
     'F1 24',
     'Juego de conducción basado en el campeonato de Fórmula 1 con diferentes modos de competición.',
-    NULL,
+    '/images/juegos/f1-24.webp',
     '2024-05-31',
     8.6,
     6
@@ -824,7 +824,7 @@ VALUES
     40,
     'Helldivers 2',
     'Shooter cooperativo centrado en completar misiones mientras los jugadores combaten grandes grupos de enemigos.',
-    NULL,
+    '/images/juegos/helldivers-2.webp',
     '2024-02-08',
     9.1,
     10
@@ -958,7 +958,7 @@ VALUES
     41,
     'Mass Effect Legendary Edition',
     'RPG de ciencia ficción que reúne la trilogía protagonizada por el comandante Shepard.',
-    NULL,
+    '/images/juegos/mass-effect-legendary-edition.webp',
     '2021-05-14',
     9.3,
     3
@@ -967,7 +967,7 @@ VALUES
     42,
     'Death Stranding Director''s Cut',
     'Aventura de exploración ambientada en un mundo fragmentado donde conectar comunidades es fundamental.',
-    NULL,
+    '/images/juegos/death-stranding-directors-cut.webp',
     '2021-09-24',
     9.0,
     2
@@ -976,7 +976,7 @@ VALUES
     43,
     'Lies of P',
     'RPG de acción exigente inspirado en una versión oscura de la historia de Pinocho.',
-    NULL,
+    '/images/juegos/lies-of-p.webp',
     '2023-09-19',
     9.1,
     3
@@ -985,7 +985,7 @@ VALUES
     44,
     'Street Fighter 6',
     'Juego de lucha competitivo con diferentes personajes y modos para jugadores nuevos y experimentados.',
-    NULL,
+    '/images/juegos/street-fighter-6.webp',
     '2023-06-02',
     9.2,
     1
@@ -994,7 +994,7 @@ VALUES
     45,
     'Minecraft',
     'Juego de exploración, construcción y supervivencia basado en un mundo formado por bloques.',
-    NULL,
+    '/images/juegos/minecraft.webp',
     '2011-11-18',
     9.4,
     8
@@ -1003,7 +1003,7 @@ VALUES
     46,
     'Rocket League',
     'Juego deportivo que combina fútbol y vehículos en partidos rápidos y competitivos.',
-    NULL,
+    '/images/juegos/rocket-league.webp',
     '2015-07-07',
     9.0,
     5
@@ -1012,7 +1012,7 @@ VALUES
     47,
     'Titanfall 2',
     'Shooter de ciencia ficción que combina combates rápidos, movilidad avanzada y enormes titanes.',
-    NULL,
+    '/images/juegos/titanfall-2.webp',
     '2016-10-28',
     9.2,
     10
@@ -1021,7 +1021,7 @@ VALUES
     48,
     'The Legend of Zelda: Tears of the Kingdom',
     'Aventura de exploración en mundo abierto que amplía Hyrule con nuevas zonas y posibilidades creativas.',
-    NULL,
+    '/images/juegos/the-legend-of-zelda-tears-of-the-kingdom.webp',
     '2023-05-12',
     9.7,
     2
@@ -1030,7 +1030,7 @@ VALUES
     49,
     'Final Fantasy VII Rebirth',
     'RPG que continúa el viaje de Cloud y sus compañeros a través de un mundo amplio y variado.',
-    NULL,
+    '/images/juegos/final-fantasy-vii-rebirth.webp',
     '2024-02-29',
     9.5,
     3
@@ -1039,7 +1039,7 @@ VALUES
     50,
     'Alien: Isolation',
     'Juego de terror y supervivencia ambientado en una estación espacial perseguida por una amenaza impredecible.',
-    NULL,
+    '/images/juegos/alien-isolation.webp',
     '2014-10-07',
     9.0,
     7
