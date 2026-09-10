@@ -1,0 +1,164 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContactForm from "../components/ContactForm.jsx";
+---
+
+<Layout
+  title="Contacto | MatchGame"
+  description="Contacta con MatchGame para enviarnos dudas, sugerencias o comentarios."
+>
+  <section class="contact-page">
+    <div class="container">
+      <header class="contact-header">
+        <p class="contact-header__eyebrow">
+          Contacto
+        </p>
+
+        <h1>
+          ¿Quieres hablar con nosotros?
+        </h1>
+
+        <p>
+          Si tienes alguna duda, sugerencia o comentario sobre
+          MatchGame, puedes escribirnos utilizando este formulario.
+        </p>
+      </header>
+
+      <div class="contact-layout">
+        <div class="contact-info">
+          <article class="contact-info__card">
+            <span class="contact-info__number">
+              01
+            </span>
+
+            <h2>
+              Sugerencias
+            </h2>
+
+            <p>
+              Cuéntanos qué mejorarías o qué funcionalidad
+              te gustaría encontrar en MatchGame.
+            </p>
+          </article>
+
+          <article class="contact-info__card">
+            <span class="contact-info__number">
+              02
+            </span>
+
+            <h2>
+              Videojuegos
+            </h2>
+
+            <p>
+              Puedes proponernos videojuegos, géneros o
+              recomendaciones para futuras selecciones.
+            </p>
+          </article>
+
+          <article class="contact-info__card">
+            <span class="contact-info__number">
+              03
+            </span>
+
+            <h2>
+              Ayuda
+            </h2>
+
+            <p>
+              Si encuentras algún problema utilizando la web,
+              puedes describírnoslo para ayudarnos a mejorarlo.
+            </p>
+          </article>
+        </div>
+
+        <ContactForm client:load />
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .contact-page {
+    padding-block: var(--space-5);
+  }
+
+  .contact-header {
+    max-width: 800px;
+    margin-bottom: var(--space-5);
+  }
+
+  .contact-header__eyebrow {
+    margin-bottom: var(--space-1);
+    color: var(--color-primary-secondary);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .contact-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .contact-header p:not(.contact-header__eyebrow) {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns:
+      minmax(260px, 0.8fr)
+      minmax(0, 1.4fr);
+    gap: var(--space-4);
+    align-items: start;
+  }
+
+  .contact-info {
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .contact-info__card {
+    padding: var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background-color: var(--color-card);
+  }
+
+  .contact-info__number {
+    display: inline-block;
+    margin-bottom: var(--space-1);
+    color: var(--color-primary-secondary);
+    font-family: var(--font-heading);
+    font-weight: 700;
+  }
+
+  .contact-info__card h2 {
+    margin-bottom: var(--space-1);
+    font-size: 1.25rem;
+  }
+
+  .contact-info__card p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  @media (max-width: 850px) {
+    .contact-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+      grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+    }
+  }
+
+  @media (max-width: 600px) {
+    .contact-info {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

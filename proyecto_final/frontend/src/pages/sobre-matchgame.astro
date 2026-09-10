@@ -1,0 +1,450 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Sobre MatchGame | MatchGame"
+  description="Conoce MatchGame, una plataforma para descubrir videojuegos mediante búsqueda, filtros y recomendaciones editoriales."
+>
+  <section class="about-page">
+    <div class="container">
+      <header class="about-hero">
+        <p class="about-eyebrow">
+          Sobre MatchGame
+        </p>
+
+        <h1>
+          Una forma sencilla de encontrar tu próximo videojuego
+        </h1>
+
+        <p class="about-hero__description">
+          MatchGame es una plataforma creada para explorar videojuegos,
+          descubrir nuevas experiencias y encontrar títulos según tus
+          preferencias de género, plataforma y puntuación.
+        </p>
+      </header>
+
+      <section class="about-section">
+        <div class="about-section__heading">
+          <p class="about-eyebrow">
+            El proyecto
+          </p>
+
+          <h2>
+            ¿Qué es MatchGame?
+          </h2>
+        </div>
+
+        <div class="about-section__content">
+          <p>
+            MatchGame reúne un catálogo propio de videojuegos almacenado
+            en una base de datos y conectado a una API desarrollada
+            específicamente para el proyecto.
+          </p>
+
+          <p>
+            El objetivo es ofrecer una experiencia clara y rápida para
+            buscar juegos, aplicar filtros, consultar información detallada
+            y descubrir recomendaciones editoriales.
+          </p>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <div class="about-section__heading">
+          <p class="about-eyebrow">
+            Cómo funciona
+          </p>
+
+          <h2>
+            Explora según lo que buscas
+          </h2>
+        </div>
+
+        <div class="features-grid">
+          <article class="feature-card">
+            <span class="feature-card__number">
+              01
+            </span>
+
+            <h3>
+              Busca
+            </h3>
+
+            <p>
+              Encuentra videojuegos directamente por su título
+              utilizando el buscador de MatchGame.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-card__number">
+              02
+            </span>
+
+            <h3>
+              Filtra
+            </h3>
+
+            <p>
+              Combina género, plataforma y diferentes criterios
+              de ordenación para reducir los resultados.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-card__number">
+              03
+            </span>
+
+            <h3>
+              Descubre
+            </h3>
+
+            <p>
+              Consulta la ficha completa de cada videojuego con
+              descripción, puntuación, plataformas y fecha de lanzamiento.
+            </p>
+          </article>
+
+          <article class="feature-card">
+            <span class="feature-card__number">
+              04
+            </span>
+
+            <h3>
+              Elige
+            </h3>
+
+            <p>
+              Utiliza Selección MatchGame para descubrir juegos
+              destacados mediante nuestras etiquetas editoriales.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="editorial-section">
+        <div>
+          <p class="about-eyebrow">
+            Selección MatchGame
+          </p>
+
+          <h2>
+            Más que una lista de videojuegos
+          </h2>
+
+          <p>
+            Además de los datos generales de cada título, MatchGame
+            incorpora una selección editorial propia con comentarios,
+            puntuaciones y etiquetas para destacar diferentes tipos
+            de experiencias.
+          </p>
+        </div>
+
+        <div class="editorial-tags">
+          <span>Imprescindible</span>
+          <span>Joya oculta</span>
+          <span>Desafiante</span>
+          <span>Ideal con amigos</span>
+        </div>
+      </section>
+
+      <section class="technology-section">
+        <div class="about-section__heading">
+          <p class="about-eyebrow">
+            Tecnología
+          </p>
+
+          <h2>
+            Construido como aplicación Full Stack
+          </h2>
+        </div>
+
+        <div class="technology-grid">
+          <article class="technology-card">
+            <h3>
+              Frontend
+            </h3>
+
+            <p>
+              Astro y React para construir una interfaz rápida,
+              reutilizable y adaptable a diferentes dispositivos.
+            </p>
+
+            <div class="technology-tags">
+              <span>Astro</span>
+              <span>React</span>
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+            </div>
+          </article>
+
+          <article class="technology-card">
+            <h3>
+              Backend
+            </h3>
+
+            <p>
+              API REST propia encargada de gestionar el catálogo,
+              filtros, reseñas y operaciones sobre los videojuegos.
+            </p>
+
+            <div class="technology-tags">
+              <span>Node.js</span>
+              <span>Express</span>
+              <span>REST API</span>
+            </div>
+          </article>
+
+          <article class="technology-card">
+            <h3>
+              Base de datos
+            </h3>
+
+            <p>
+              Base de datos relacional con videojuegos, géneros,
+              plataformas y reseñas editoriales relacionadas entre sí.
+            </p>
+
+            <div class="technology-tags">
+              <span>MySQL</span>
+              <span>SQL</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-cta">
+        <div>
+          <p class="about-eyebrow">
+            Empieza a explorar
+          </p>
+
+          <h2>
+            Tu próximo juego puede estar aquí
+          </h2>
+
+          <p>
+            Explora el catálogo completo y utiliza nuestros filtros
+            para encontrar una experiencia que encaje contigo.
+          </p>
+        </div>
+
+        <a href="/catalogo">
+          Explorar catálogo
+        </a>
+      </section>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-page {
+    padding-block: var(--space-5);
+  }
+
+  .about-hero {
+    max-width: 850px;
+    padding-bottom: var(--space-6);
+  }
+
+  .about-eyebrow {
+    margin-bottom: var(--space-1);
+    color: var(--color-primary-secondary);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .about-hero h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .about-hero__description {
+    max-width: 750px;
+    color: var(--color-text-secondary);
+    font-size: 1.125rem;
+    line-height: 1.7;
+  }
+
+  .about-section {
+    padding-block: var(--space-5);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .about-section__heading {
+    max-width: 700px;
+    margin-bottom: var(--space-3);
+  }
+
+  .about-section__content {
+    display: grid;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+    gap: var(--space-4);
+  }
+
+  .about-section__content p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns:
+      repeat(4, minmax(0, 1fr));
+    gap: var(--space-2);
+  }
+
+  .feature-card,
+  .technology-card {
+    padding: var(--space-3);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background-color: var(--color-card);
+  }
+
+  .feature-card__number {
+    display: inline-block;
+    margin-bottom: var(--space-2);
+    color: var(--color-primary-secondary);
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .feature-card h3,
+  .technology-card h3 {
+    margin-bottom: var(--space-1);
+  }
+
+  .feature-card p,
+  .technology-card p {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .editorial-section {
+    display: grid;
+    grid-template-columns:
+      1fr 1fr;
+    gap: var(--space-5);
+    padding: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background-color: var(--color-bg-secondary);
+  }
+
+  .editorial-section h2 {
+    margin-bottom: var(--space-2);
+  }
+
+  .editorial-section p:not(.about-eyebrow) {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+
+  .editorial-tags {
+    display: grid;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+    gap: var(--space-2);
+    align-content: center;
+  }
+
+  .editorial-tags span {
+    padding: var(--space-2);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-small);
+    background-color: var(--color-card);
+    font-weight: 600;
+    text-align: center;
+  }
+
+  .technology-section {
+    padding-block: var(--space-5);
+  }
+
+  .technology-grid {
+    display: grid;
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr));
+    gap: var(--space-3);
+  }
+
+  .technology-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: var(--space-2);
+  }
+
+  .technology-tags span {
+    padding: 5px 9px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-small);
+    color: var(--color-primary-secondary);
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .about-cta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-card);
+    background-color: var(--color-card);
+  }
+
+  .about-cta h2 {
+    margin-bottom: var(--space-1);
+  }
+
+  .about-cta p:not(.about-eyebrow) {
+    max-width: 650px;
+    color: var(--color-text-secondary);
+  }
+
+  .about-cta > a {
+    flex-shrink: 0;
+    padding: 12px 18px;
+    border-radius: var(--radius-small);
+    background-color: var(--color-primary);
+    color: var(--color-text-primary);
+    font-weight: 700;
+  }
+
+  @media (max-width: 900px) {
+    .features-grid {
+      grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+    }
+
+    .technology-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .editorial-section {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .about-section__content,
+    .features-grid,
+    .editorial-tags {
+      grid-template-columns: 1fr;
+    }
+
+    .about-cta {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+</style>
