@@ -17,22 +17,31 @@ export default function CatalogoJuegos() {
   const [plataforma, setPlataforma] = useState("");
   const [orden, setOrden] = useState("titulo_asc");
 
+  const [page, setPage] = useState(1);
+
+  const [pagination, setPagination] = useState({
+    page: 1,
+    limit: 12,
+    total: 0,
+    totalPages: 0,
+  });
+
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
   useEffect(() => {
-  const params = new URLSearchParams(
-    window.location.search
-  );
+    const params = new URLSearchParams(
+      window.location.search
+    );
 
-  const busquedaURL =
-    params.get("buscar") || "";
+    const busquedaURL =
+      params.get("buscar") || "";
 
-  setTerminoInput(busquedaURL);
-  setBuscar(busquedaURL);
+    setTerminoInput(busquedaURL);
+    setBuscar(busquedaURL);
 
-  setUrlProcesada(true);
-}, []);
+    setUrlProcesada(true);
+  }, []);
 
   useEffect(() => {
     async function cargarOpcionesFiltros() {
@@ -43,7 +52,10 @@ export default function CatalogoJuegos() {
             fetch(`${API_URL}/api/plataformas`),
           ]);
 
-        if (!responseGeneros.ok || !responsePlataformas.ok) {
+        if (
+          !responseGeneros.ok ||
+          !responsePlataformas.ok
+        ) {
           throw new Error(
             "No se pudieron cargar las opciones de filtrado"
           );
@@ -56,7 +68,9 @@ export default function CatalogoJuegos() {
           await responsePlataformas.json();
 
         setGeneros(resultadoGeneros.data);
-        setPlataformas(resultadoPlataformas.data);
+        setPlataformas(
+          resultadoPlataformas.data
+        );
       } catch (error) {
         setError(error.message);
       }
@@ -67,15 +81,16 @@ export default function CatalogoJuegos() {
 
   useEffect(() => {
     if (!urlProcesada) {
-  return;
-}
+      return;
+    }
+
     async function cargarJuegos() {
       try {
         setLoading(true);
         setError("");
 
         const params = new URLSearchParams({
-          page: "1",
+          page: String(page),
           limit: "12",
           orden,
         });
@@ -89,7 +104,10 @@ export default function CatalogoJuegos() {
         }
 
         if (plataforma) {
-          params.set("plataforma", plataforma);
+          params.set(
+            "plataforma",
+            plataforma
+          );
         }
 
         const response = await fetch(
@@ -97,12 +115,19 @@ export default function CatalogoJuegos() {
         );
 
         if (!response.ok) {
-          throw new Error("No se pudo cargar el catálogo");
+          throw new Error(
+            "No se pudo cargar el catálogo"
+          );
         }
 
-        const resultado = await response.json();
+        const resultado =
+          await response.json();
 
         setJuegos(resultado.data);
+
+        setPagination(
+          resultado.pagination
+        );
       } catch (error) {
         setError(error.message);
       } finally {
@@ -111,23 +136,66 @@ export default function CatalogoJuegos() {
     }
 
     cargarJuegos();
-  }, [buscar, genero, plataforma, orden]);
+  }, [
+    buscar,
+    genero,
+    plataforma,
+    orden,
+    page,
+    urlProcesada,
+  ]);
 
   function handleBuscar(event) {
     event.preventDefault();
 
+    setPage(1);
     setBuscar(terminoInput.trim());
   }
 
   function handleLimpiarBusqueda() {
     setTerminoInput("");
     setBuscar("");
+    setPage(1);
+  }
+
+  function handleGeneroChange(event) {
+    setGenero(event.target.value);
+    setPage(1);
+  }
+
+  function handlePlataformaChange(event) {
+    setPlataforma(event.target.value);
+    setPage(1);
+  }
+
+  function handleOrdenChange(event) {
+    setOrden(event.target.value);
+    setPage(1);
   }
 
   function handleRestablecerFiltros() {
     setGenero("");
     setPlataforma("");
     setOrden("titulo_asc");
+    setPage(1);
+  }
+
+  function handlePaginaAnterior() {
+    setPage((paginaActual) =>
+      Math.max(
+        paginaActual - 1,
+        1
+      )
+    );
+  }
+
+  function handlePaginaSiguiente() {
+    setPage((paginaActual) =>
+      Math.min(
+        paginaActual + 1,
+        pagination.totalPages
+      )
+    );
   }
 
   const hayFiltrosActivos =
@@ -155,7 +223,9 @@ export default function CatalogoJuegos() {
             placeholder="Buscar por título..."
             value={terminoInput}
             onChange={(event) =>
-              setTerminoInput(event.target.value)
+              setTerminoInput(
+                event.target.value
+              )
             }
           />
 
@@ -167,7 +237,9 @@ export default function CatalogoJuegos() {
             <button
               type="button"
               className="button-secondary"
-              onClick={handleLimpiarBusqueda}
+              onClick={
+                handleLimpiarBusqueda
+              }
             >
               Limpiar
             </button>
@@ -183,8 +255,8 @@ export default function CatalogoJuegos() {
             <select
               id="genero"
               value={genero}
-              onChange={(event) =>
-                setGenero(event.target.value)
+              onChange={
+                handleGeneroChange
               }
             >
               <option value="">
@@ -210,22 +282,28 @@ export default function CatalogoJuegos() {
             <select
               id="plataforma"
               value={plataforma}
-              onChange={(event) =>
-                setPlataforma(event.target.value)
+              onChange={
+                handlePlataformaChange
               }
             >
               <option value="">
                 Todas las plataformas
               </option>
 
-              {plataformas.map((plataforma) => (
-                <option
-                  key={plataforma.id}
-                  value={plataforma.nombre}
-                >
-                  {plataforma.nombre}
-                </option>
-              ))}
+              {plataformas.map(
+                (plataforma) => (
+                  <option
+                    key={plataforma.id}
+                    value={
+                      plataforma.nombre
+                    }
+                  >
+                    {
+                      plataforma.nombre
+                    }
+                  </option>
+                )
+              )}
             </select>
           </div>
 
@@ -237,8 +315,8 @@ export default function CatalogoJuegos() {
             <select
               id="orden"
               value={orden}
-              onChange={(event) =>
-                setOrden(event.target.value)
+              onChange={
+                handleOrdenChange
               }
             >
               <option value="titulo_asc">
@@ -271,13 +349,21 @@ export default function CatalogoJuegos() {
             <button
               type="button"
               className="reset-filters"
-              onClick={handleRestablecerFiltros}
+              onClick={
+                handleRestablecerFiltros
+              }
             >
               Restablecer filtros
             </button>
           )}
         </div>
       </div>
+
+      {!loading && !error && (
+        <p className="catalog-summary">
+          {pagination.total} videojuegos encontrados
+        </p>
+      )}
 
       {loading && (
         <p className="catalog-status">
@@ -291,64 +377,117 @@ export default function CatalogoJuegos() {
         </p>
       )}
 
-      {!loading && !error && juegos.length === 0 && (
-        <p className="catalog-status">
-          No se han encontrado videojuegos.
-        </p>
-      )}
+      {!loading &&
+        !error &&
+        juegos.length === 0 && (
+          <p className="catalog-status">
+            No se han encontrado videojuegos.
+          </p>
+        )}
 
-      {!loading && !error && juegos.length > 0 && (
-        <div className="games-grid">
-          {juegos.map((juego) => (
-            <article
-              className="game-card"
-              key={juego.id}
-            >
-              <a
-                className="game-card__link"
-                href={`/juegos/${juego.id}`}
-                aria-label={`Ver detalles de ${juego.titulo}`}
-              >
-                <div className="game-card__image-container">
-                  {juego.imagen ? (
-                    <img
-                      className="game-card__image"
-                      src={juego.imagen}
-                      alt={`Carátula de ${juego.titulo}`}
-                      loading="lazy"
-                    />
-                  ) : (
-                    <div className="game-card__placeholder">
-                      <span>MatchGame</span>
+      {!loading &&
+        !error &&
+        juegos.length > 0 && (
+          <>
+            <div className="games-grid">
+              {juegos.map((juego) => (
+                <article
+                  className="game-card"
+                  key={juego.id}
+                >
+                  <a
+                    className="game-card__link"
+                    href={`/juegos/${juego.id}`}
+                    aria-label={`Ver detalles de ${juego.titulo}`}
+                  >
+                    <div className="game-card__image-container">
+                      {juego.imagen ? (
+                        <img
+                          className="game-card__image"
+                          src={juego.imagen}
+                          alt={`Carátula de ${juego.titulo}`}
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="game-card__placeholder">
+                          <span>
+                            MatchGame
+                          </span>
+                        </div>
+                      )}
                     </div>
-                  )}
-                </div>
 
-                <div className="game-card__content">
-                  <div className="game-card__header">
-                    <h3>{juego.titulo}</h3>
+                    <div className="game-card__content">
+                      <div className="game-card__header">
+                        <h3>
+                          {juego.titulo}
+                        </h3>
 
-                    <span className="game-card__score">
-                      {Number(juego.puntuacion).toFixed(1)}
-                    </span>
-                  </div>
+                        <span className="game-card__score">
+                          {Number(
+                            juego.puntuacion
+                          ).toFixed(1)}
+                        </span>
+                      </div>
 
-                  <p className="game-card__genre">
-                    {juego.genero}
-                  </p>
-                </div>
-              </a>
-            </article>
-          ))}
-        </div>
-      )}
+                      <p className="game-card__genre">
+                        {juego.genero}
+                      </p>
+                    </div>
+                  </a>
+                </article>
+              ))}
+            </div>
+
+            {pagination.totalPages >
+              1 && (
+              <nav
+                className="pagination"
+                aria-label="Paginación del catálogo"
+              >
+                <button
+                  type="button"
+                  onClick={
+                    handlePaginaAnterior
+                  }
+                  disabled={
+                    pagination.page <= 1
+                  }
+                >
+                  Anterior
+                </button>
+
+                <span>
+                  Página{" "}
+                  {pagination.page} de{" "}
+                  {
+                    pagination.totalPages
+                  }
+                </span>
+
+                <button
+                  type="button"
+                  onClick={
+                    handlePaginaSiguiente
+                  }
+                  disabled={
+                    pagination.page >=
+                    pagination.totalPages
+                  }
+                >
+                  Siguiente
+                </button>
+              </nav>
+            )}
+          </>
+        )}
 
       <style>{`
         .catalog-controls {
           display: flex;
           flex-direction: column;
           gap: var(--space-3);
-          margin-bottom: var(--space-4);
+          margin-bottom: var(--space-3);
         }
 
         .search-form {
@@ -372,7 +511,8 @@ export default function CatalogoJuegos() {
         }
 
         .search-form button,
-        .reset-filters {
+        .reset-filters,
+        .pagination button {
           padding: 10px 16px;
           border-radius: var(--radius-small);
           color: var(--color-text-primary);
@@ -384,7 +524,8 @@ export default function CatalogoJuegos() {
           background-color: var(--color-primary);
         }
 
-        .search-form .button-secondary {
+        .search-form .button-secondary,
+        .reset-filters {
           border: 1px solid var(--color-primary);
           background-color: transparent;
         }
@@ -412,15 +553,19 @@ export default function CatalogoJuegos() {
           padding: 10px 12px;
         }
 
-        .reset-filters {
-          border: 1px solid var(--color-primary);
-          background-color: transparent;
+        .catalog-summary {
+          margin-bottom: var(--space-3);
+          color: var(--color-text-secondary);
+          font-size: 0.875rem;
         }
 
         .games-grid {
           display: grid;
           grid-template-columns:
-            repeat(auto-fill, minmax(210px, 1fr));
+            repeat(
+              auto-fill,
+              minmax(210px, 1fr)
+            );
           gap: var(--space-3);
         }
 
@@ -501,6 +646,32 @@ export default function CatalogoJuegos() {
           font-size: 0.875rem;
         }
 
+        .pagination {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: var(--space-2);
+          margin-top: var(--space-4);
+        }
+
+        .pagination span {
+          color: var(--color-text-secondary);
+        }
+
+        .pagination button {
+          border: 1px solid var(--color-primary);
+          background-color: transparent;
+        }
+
+        .pagination button:not(:disabled):hover {
+          background-color: var(--color-primary);
+        }
+
+        .pagination button:disabled {
+          cursor: not-allowed;
+          opacity: 0.4;
+        }
+
         .catalog-status {
           padding-block: var(--space-4);
           text-align: center;
@@ -537,12 +708,13 @@ export default function CatalogoJuegos() {
             align-items: stretch;
           }
 
-          .filter-control {
+          .filter-control,
+          .reset-filters {
             width: 100%;
           }
 
-          .reset-filters {
-            width: 100%;
+          .pagination {
+            flex-wrap: wrap;
           }
         }
       `}</style>
