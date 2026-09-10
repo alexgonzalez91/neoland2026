@@ -1,0 +1,60 @@
+---
+import Layout from "../layouts/Layout.astro";
+import SeleccionMatchGame from "../components/SeleccionMatchGame.jsx";
+---
+
+<Layout
+  title="Selección MatchGame | MatchGame"
+  description="Descubre las recomendaciones editoriales de MatchGame."
+>
+  <section class="selection-page">
+    <div class="container">
+      <header class="selection-header">
+        <p class="selection-header__eyebrow">
+          Selección MatchGame
+        </p>
+
+        <h1>
+          Recomendaciones que merece la pena descubrir
+        </h1>
+
+        <p>
+          Explora nuestra selección editorial y encuentra
+          videojuegos destacados por su calidad, dificultad,
+          originalidad o experiencia de juego.
+        </p>
+      </header>
+
+      <SeleccionMatchGame client:load />
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .selection-page {
+    padding-block: var(--space-5);
+  }
+
+  .selection-header {
+    max-width: 800px;
+    margin-bottom: var(--space-4);
+  }
+
+  .selection-header__eyebrow {
+    margin-bottom: var(--space-1);
+    color: var(--color-primary-secondary);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .selection-header h1 {
+    margin-bottom: var(--space-2);
+  }
+
+  .selection-header p:not(.selection-header__eyebrow) {
+    color: var(--color-text-secondary);
+    line-height: 1.7;
+  }
+</style>
